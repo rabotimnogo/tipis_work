@@ -12,4 +12,4 @@ src/data/creditcard.csv
 # Virtual environments
 .venv/
 venv/
-env/
+env/src/data/creditcard.csv
