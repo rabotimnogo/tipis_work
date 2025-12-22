@@ -7,8 +7,9 @@ class Prepocessor:
     '''
     класс для предобработки данных
     '''
-    def __init__(self, data: pd.DataFrame = pd.read_csv("src/data/creditcard.csv")):
-        self.df = data
+    def __init__(self, data: pd.DataFrame):
+        self.df = pd.read_csv("src/data/creditcard.csv")
+        self._scalling()
 
     def _scalling(self) -> np.NdArray:
         '''
@@ -26,6 +27,16 @@ class Prepocessor:
         new_df["Time"] = (time - time.min()) / (time.max() - time.min())
 
         # убираем таргет, чтобы моделька делала предикт
-        scalling: pd.DataFrame = new_df.drop('class', axis=1)
+        not_frauds = new_df.query("Class == 0")
+        frauds = new_df.query("Class == 1")
 
-        return scalling
+        # собираем сбалансированный датафрейм
+        balanced_df: pd.DataFrame = pd.concat([frauds, not_frauds.sample(len(frauds), random_state=1)])
+
+        # сэмплируем дф
+        balanced_df: pd.DataFrame = balanced_df.sample(frac=1, random_state=1)
+
+        # можно не преобразовывать, опционально
+        balanced_df_np: np.NdArray = balanced_df.to_numpy()  
+
+        return balanced_df_np

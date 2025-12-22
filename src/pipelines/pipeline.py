@@ -1,3 +1,6 @@
+from src.process.preprocess import Prepocessor
+
+
 class Pipeline:
 
     def __init__(self):
@@ -7,7 +10,15 @@ class Pipeline:
         self.predict_data()
     
     def process_data() -> bool:
-        pass
+        '''
+        Препроцессим данные
+        '''
+        if Prepocessor():
+            print('Препроцесс данных удался')
+            return True
+        else:
+            print('Препроцесс данных НЕ удался')
+            return False
 
     def split_data() -> bool:
         pass
