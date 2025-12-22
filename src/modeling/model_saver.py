@@ -12,20 +12,19 @@ class ModelSaver:
         сохраняет модель в файл
         '''
         try:
-            os.makedirs("models", exist_ok=True)
-
+            
             # сохраняем модель
-            joblib.dump(model, "model_saved.joblib")
+            joblib.dump(model, 'src/models/saved_logreg.joblib')
 
             # проверяем что файл создался
-            if os.path.exists("model_saved.joblib"):
-                print("Модель сохранена")
+            if os.path.exists('src/models/saved_logreg.joblib'):
+                print('модель сохранилась')
                 return True
 
             else:
-                print("Модель НЕ сохранена")
+                print('модель не сохранилась')
                 return False
 
         except Exception as e:
-            print(f"ошибка сохранения: {e}")
+            print(f'ошибка сохранения: {e}')
             return False
