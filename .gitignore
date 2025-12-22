@@ -6,8 +6,10 @@ dist/
 wheels/
 *.egg-info
 
-# data
-src/data/creditcard.csv
+# data - исправьте пути!
+src/data/creditcard.csv            
 
 # Virtual environments
-.venv
+.venv/
+venv/
+env/
