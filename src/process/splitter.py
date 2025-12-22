@@ -7,4 +7,4 @@ class SplitData:
 
     def _split_data(data: np.NdArray) -> tuple:
         
-        return (1, )
+        return (1, 1)
