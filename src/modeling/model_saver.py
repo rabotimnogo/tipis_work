@@ -1,7 +1,7 @@
 import os
 import joblib
 from sklearn.linear_model import LogisticRegression
-from train import logistic_model_b
+from modeling.train import logistic_model_b
 
 class ModelSaver:
     '''
