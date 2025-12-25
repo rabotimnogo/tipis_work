@@ -42,6 +42,7 @@ print(
         y_val_b, logistic_model_b.predict(x_val_b), target_names=["Not Fraud", "Fraud"]
     )
 )
+print('модель обучена')
 """
 супер
               precision    recall  f1-score   support

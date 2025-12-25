@@ -1,0 +1,1 @@
+INTERNAL_DATA = "src/data/creditcard.csv"
